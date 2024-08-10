@@ -28,6 +28,36 @@ test('開局', function () {
 
 在第十局中，若玩家投出了補中或全倒，可以進行額外的投球來完成該局。然而，第十局最多只能投三次球。
 
+## 範例 1
+
+![保齡球計分案例](assets/bowling%20example.jpg)
+
+每計分格兩次擊倒機會。
+
+第一計分格：第一次擊倒６瓶，第二次Spare。Spare要加上下一次擊倒分數。10+10=20
+
+第二計分格：第一次擊倒Strike。Strike要加上下兩個擊倒分數。20(上一個分數)+10+1+0=31
+
+第三計分格：兩次加起來擊倒1瓶。31+1=32
+
+第四計分格：Strike。加上下兩個擊倒分數。32+10+10+0=52
+
+第五計分格：Strike。加上下兩個擊倒分數。52+10+0+8=70
+
+第六計分格：兩次加起來擊倒8瓶。70+8=78
+
+第七計分格：Spare。加上下一個擊倒分數。78+10+3=91
+
+第八計分格：兩次加起來擊倒8瓶。91+8=99
+
+第九計分格：兩次加起來擊倒4瓶。99+4=103
+
+第十計分格：Strike。加上下兩個擊倒分數。103+10+3+4=120
+
+## 範例 2
+
+完美球局就是12個Strike。300分
+
 ## 規格
 
 寫一個名為 Game 的類別，該類別具有兩個方法：
@@ -35,30 +65,10 @@ test('開局', function () {
 1. `roll(pins)`：每次玩家投球時調用。參數是擊倒的球瓶數量。
 2. `score() -> int`：僅在比賽結束時調用。返回該場比賽的總得分。
 
-## 原文
-
-The game consists of 10 frames as shown above.  In each frame the player has
-two opportunities to knock down 10 pins.  The score for the frame is the total
-number of pins knocked down, plus bonuses for strikes and spares.
-
-A spare is when the player knocks down all 10 pins in two tries.  The bonus for
-that frame is the number of pins knocked down by the next roll.  So in frame 3
-above, the score is 10 (the total number knocked down) plus a bonus of 5 (the
-number of pins knocked down on the next roll.)
-
-A strike is when the player knocks down all 10 pins on his first try.  The bonus
-for that frame is the value of the next two balls rolled.
-
-In the tenth frame a player who rolls a spare or strike is allowed to roll the extra
-balls to complete the frame.  However no more than three balls can be rolled in
-tenth frame.
-
-Write a class named “Game” that has two methods
-roll(pins : int) is called each time the player rolls a ball.  The argument is the number of pins knocked down.
-score() : int is called only at the very end of the game.  It returns the total score for that game.
-
-## Reference
+## 參考資料
 
 <https://kata-log.rocks/bowling-game-kata>
 <http://www.butunclebob.com/files/downloads/Bowling%20Game%20Kata.ppt>
 <https://blog.marsen.me/2021/06/25/2021/bowling_kata/>
+
+![TDD cycle](https://upload.wikimedia.org/wikipedia/commons/0/0b/TDD_Global_Lifecycle.png)
