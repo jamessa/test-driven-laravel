@@ -61,3 +61,4 @@ score() : int is called only at the very end of the game.  It returns the total 
 
 <https://kata-log.rocks/bowling-game-kata>
 <http://www.butunclebob.com/files/downloads/Bowling%20Game%20Kata.ppt>
+<https://blog.marsen.me/2021/06/25/2021/bowling_kata/>
