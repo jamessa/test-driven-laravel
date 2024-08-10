@@ -7,4 +7,5 @@ test('開局', function () {
     for ($i = 0; $i < 20; $i++) {
         $game->roll(0);
     }
+    expect($game->score())->toBe(0);
 })->only();
