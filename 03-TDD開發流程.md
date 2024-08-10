@@ -1,5 +1,23 @@
 # 練習
 
+## Prepare
+
+```console
+php artisan make:test --unit BowlingGameTest
+```
+
+tests/Unit/BowlingGameTest.php
+
+```php
+<?php
+
+use App\BowlingGame;
+
+test('開局', function () {
+    $game = new BowlingGame();
+});
+```
+
 ## 保齡球計分
 
 一場比賽由 10 局組成。在每一局中，玩家有兩次機會來擊倒 10 根球瓶。該局的得分是擊倒的球瓶總數，加上全倒和補中所帶來的獎金。
