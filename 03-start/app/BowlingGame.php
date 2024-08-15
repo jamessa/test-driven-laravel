@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace App;
 
 class BowlingGame
@@ -27,9 +29,14 @@ class BowlingGame
     public function score(): int
     {
         $score = 0;
-
-        foreach ($this->rolls as $roll) {
-            $score += $roll;
+        $i = 0;
+        for ($frame = 0; $frame < 10; $frame++) {
+            if ($this->rolls[$i] + $this->rolls[$i + 1] == 10) {
+                $score += $this->rolls[$i + 2];
+            } // spare
+            $score += $this->rolls[$i];
+            $score += $this->rolls[$i + 1];
+            $i += 2;
         }
 
         return $score;

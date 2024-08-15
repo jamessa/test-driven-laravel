@@ -30,4 +30,4 @@ test('1 補中 spare', function () {
     rollMany($game, 17, 0);
 
     expect($game->score())->toBe(16);
-})->skip();
+});
