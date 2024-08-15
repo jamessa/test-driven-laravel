@@ -10,7 +10,7 @@ function rollMany($game, $n, $pins)
 }
 
 test('投 20 球，全部都不中', function () {
-    $game = new BowlingGame();
+    $game = new BowlingGameFinal();
 
     rollMany($game, 20, 0);
 
@@ -18,7 +18,7 @@ test('投 20 球，全部都不中', function () {
 });
 
 test('投 20 球，但是每次都只有打出一球', function(){
-    $game = new BowlingGame();
+    $game = new BowlingGameFinal();
 
     rollMany($game, 20, 1);
 
@@ -33,7 +33,7 @@ function rollSpare($game)
 
 
 test('1 補中 spare', function(){
-    $game = new BowlingGame();
+    $game = new BowlingGameFinal();
 
     rollSpare($game); // 第一局 13 分，因為全到會加上下一局的第一球
     $game->roll(3);
@@ -48,7 +48,7 @@ function rollStrike($game)
 }
 
 test('1 全倒 strike', function(){
-    $game = new BowlingGame();
+    $game = new BowlingGameFinal();
 
     rollStrike($game);
     $game->roll(3);
@@ -59,7 +59,7 @@ test('1 全倒 strike', function(){
 });
 
 test('perfect game', function(){
-    $game = new BowlingGame();
+    $game = new BowlingGameFinal();
 
     rollMany($game, 12, 10);
 
