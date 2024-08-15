@@ -4,6 +4,8 @@ namespace App;
 
 class BowlingGame
 {
+    private $rolls = [];
+    private $currentRoll = 0;
     protected int $score = 0;
 
     /**
@@ -15,6 +17,7 @@ class BowlingGame
     public function roll(int $pins): void
     {
         $this->score += $pins;
+        $this->rolls[$this->currentRoll++] = $pins;
     }
 
     /**
@@ -23,6 +26,12 @@ class BowlingGame
      */
     public function score(): int
     {
-        return $this->score;
+        $score = 0;
+
+        foreach ($this->rolls as $roll) {
+            $score += $roll;
+        }
+
+        return $score;
     }
 }
