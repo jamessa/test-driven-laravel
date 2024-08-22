@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App;
 
-use phpDocumentor\Reflection\Types\Boolean;
-
 class BowlingGame
 {
     private $rolls = [];
@@ -29,8 +27,13 @@ class BowlingGame
         return $this->rolls[$i] + $this->rolls[$i + 1] == 10;
     }
 
+    public function isStrike(int $i): bool
+    {
+        return $this->rolls[$i] == 10;
+    }
+
     /**
-     *
+     * 分數計算。
      * @return int
      */
     public function score(): int
@@ -43,7 +46,7 @@ class BowlingGame
                 $score += $this->rolls[$i + 2];
                 $i += 2;
             }
-            else if($this->rolls[$i] == 10){
+            else if($this->isStrike($i)){
                 $score += 10;
                 $score += $this->rolls[$i + 1];
                 $score += $this->rolls[$i + 2];
