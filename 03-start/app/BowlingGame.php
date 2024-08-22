@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App;
 
+use phpDocumentor\Reflection\Types\Boolean;
+
 class BowlingGame
 {
     private $rolls = [];
@@ -22,6 +24,11 @@ class BowlingGame
         $this->rolls[$this->currentRoll++] = $pins;
     }
 
+    public function isSpare(int $i): bool
+    {
+        return $this->rolls[$i] + $this->rolls[$i + 1] == 10;
+    }
+
     /**
      *
      * @return int
@@ -31,12 +38,22 @@ class BowlingGame
         $score = 0;
         $i = 0;
         for ($frame = 0; $frame < 10; $frame++) {
-            if ($this->rolls[$i] + $this->rolls[$i + 1] == 10) {
+            if($this->isSpare($i)){
+                $score += 10;
                 $score += $this->rolls[$i + 2];
-            } // spare
-            $score += $this->rolls[$i];
-            $score += $this->rolls[$i + 1];
-            $i += 2;
+                $i += 2;
+            }
+            else if($this->rolls[$i] == 10){
+                $score += 10;
+                $score += $this->rolls[$i + 1];
+                $score += $this->rolls[$i + 2];
+                $i += 1;
+            }
+            else{
+                $score += $this->rolls[$i];
+                $score += $this->rolls[$i + 1];
+                $i += 2;
+            }
         }
 
         return $score;
