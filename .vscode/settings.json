@@ -1,3 +1,6 @@
 {
-    "git.rebaseWhenSync": true
+    "git.rebaseWhenSync": true,
+    "cSpell.words": [
+        "Laravel"
+    ]
 }
