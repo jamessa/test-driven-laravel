@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 class BowlingGameFinal
 {
     private $rolls = [];
@@ -17,7 +18,7 @@ class BowlingGameFinal
         $score = 0;
 
         $i=0;
-        for($frame = 0; $frame < 10; $frame++) {
+        for($frame = 0; $frame < 10 && $i < count($this->rolls); $frame++) {
             if($this->isStrike($i)) {
                 $score += 10 + $this->strikeBonus($i);
                 $i++;
